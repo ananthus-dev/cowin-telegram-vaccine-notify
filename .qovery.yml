@@ -1,0 +1,11 @@
+---
+application:
+  name: "cowin-telegram-vaccine-notify"
+  project: "cowin-telegram-vaccine-notify"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-cowin-telegram-vaccine-notify"
+  routes:
+  - application_name: "cowin-telegram-vaccine-notify"
+    paths:
+    - "/*"

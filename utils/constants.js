@@ -27,8 +27,7 @@ const CHECK_INTERVAL = 10000;
 
 const COWIN_API_URL = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin';
 
-const MESSAGE_INTERVAL = 1800000;
-// const MESSAGE_INTERVAL = 600000;
+const MESSAGE_INTERVAL = 7200000; //2 hrs
 
 const PORT = 3000;
 

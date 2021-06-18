@@ -243,7 +243,7 @@ const clearTimer = () => {
     timeoutID = null;
 }
 
-const checkSlotAvailability = async (bot) => {
+const checkSlotAvailability = async () => {
 
     if (timeoutID === null) return;
 
@@ -279,7 +279,8 @@ const checkSlotAvailability = async (bot) => {
 
     for (let i = 0; i < uniquePinCodes.length; i++) {
 
-        let [day, month, year] = new Date().toLocaleDateString().split('/');
+        let [month, day, year] = new Date().toLocaleDateString().split('/');
+        // let [day, month, year] = new Date().toLocaleDateString().split('/');
         if (+day < 10)
             day = '0' + day;
         if (+month < 10)
@@ -296,6 +297,10 @@ const checkSlotAvailability = async (bot) => {
                     headers: {
                         'User-Agent': 'PostmanRuntime/7.28.0',
                         'Host': 'cdn-api.co-vin.in',
+                        'Accept': '*/*',
+                        'Cache-Control':'no-cache',
+                        'Accept-Encoding':'gzip, deflate, br',
+                        'Connection':'keep-alive'
                     }
                 });
                 const data = await response.json();

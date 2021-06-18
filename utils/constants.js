@@ -32,6 +32,10 @@ const MESSAGE_INTERVAL = 1800000;
 
 const PORT = 3000;
 
+const PINCODE_ADD_REGEX = new RegExp(/\/add (.+)/);
+const PINCODE_REMOVE_REGEX = new RegExp(/\/remove (.+)/);
+const START_REGEX = new RegExp(/^\/start$/);
+
 module.exports = {
     MONGODB_URI,
     ADMIN_USER_ID,
@@ -40,5 +44,8 @@ module.exports = {
     COWIN_API_URL,
     CHECK_INTERVAL,
     MESSAGE_INTERVAL,
-    PORT
+    PORT,
+    PINCODE_ADD_REGEX,
+    PINCODE_REMOVE_REGEX,
+    START_REGEX
 }

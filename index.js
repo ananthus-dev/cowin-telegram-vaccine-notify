@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const { MONGODB_URI, PORT } = require('./utils/constants');
+const { MONGODB_URI, PORT,PINCODE_ADD_REGEX,PINCODE_REMOVE_REGEX,START_REGEX } = require('./utils/constants');
 
 const { checkSlotAvailability, clearTimer,initializeTimer } = require('./utils/util');
 const { onAddPinCode, onRemovePinCode, onStart, bot } = require('./utils/util.js');
@@ -18,11 +18,11 @@ app.use('/cowin/start', async (req, res) => {
 
         console.info('STARTED TELEGRAM POLLING', '\n');
 
-        bot.onText(/\/add (.+)/, onAddPinCode);
+        bot.onText(PINCODE_ADD_REGEX, onAddPinCode);
 
-        bot.onText(/\/remove (.+)/, onRemovePinCode);
+        bot.onText(PINCODE_REMOVE_REGEX, onRemovePinCode);
 
-        bot.onText(/^\/start$/, onStart);
+        bot.onText(START_REGEX, onStart);
         
         initializeTimer();
         
@@ -41,6 +41,9 @@ app.use('/cowin/start', async (req, res) => {
 app.use('/cowin/stop', async (req, res) => {
     try {
         clearTimer();
+        bot.removeTextListener(PINCODE_ADD_REGEX);
+        bot.removeTextListener(PINCODE_REMOVE_REGEX);
+        bot.removeTextListener(START_REGEX);
         await bot.stopPolling();
         console.info('STOPPED TELEGRAM POLLING ', '\n');
         console.info('SERVICE STOPPED', '\n');
@@ -51,7 +54,7 @@ app.use('/cowin/stop', async (req, res) => {
         res.json({ 'Status': 'Failed to stop the service' });
     }
 
-})
+});
 
 mongoose
     .connect(MONGODB_URI)

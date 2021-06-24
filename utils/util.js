@@ -279,12 +279,8 @@ const checkSlotAvailability = async () => {
 
     for (let i = 0; i < uniquePinCodes.length; i++) {
 
-        let [month, day, year] = new Date().toLocaleDateString().split('/');
-        // let [day, month, year] = new Date().toLocaleDateString().split('/');
-        if (+day < 10)
-            day = '0' + day;
-        if (+month < 10)
-            month = '0' + month;
+        let [month, day, year] = new Date().toLocaleDateString('en',{month:'2-digit',day:'2-digit',year:'numeric'}).split('/');
+
         const dateString = [day, month, year].join('-');
 
         const pinCode = uniquePinCodes[i];

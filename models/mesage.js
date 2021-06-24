@@ -11,6 +11,10 @@ const messageSchema = new Schema({
         type: Schema.Types.String,
         required: true
     },
+    userId: {
+        type: Schema.Types.String,
+        required: true
+    },
     lastSentTime:{
         type:Schema.Types.Date,
         required: true

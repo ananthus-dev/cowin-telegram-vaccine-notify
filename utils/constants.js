@@ -13,9 +13,6 @@ const {
 const MONGODB_URI =
     `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}/${MONGO_DEFAULT_DATABASE}?retryWrites=true&w=majority`;
 
-// const ADMIN_USER_ID = 440475609;
-// const BOT_TOKEN = '1712425933:AAHl5jDh-j67juFsf4DNoM-aP3UwZyklcAA';
-
 const MY_PINCODES = [
     686502,
     686503,
@@ -35,12 +32,6 @@ const MY_PINCODES = [
     686577,
     686584
 ];
-
-// const CHECK_INTERVAL = 10000;
-
-// const COWIN_API_URL = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin';
-
-// const MESSAGE_INTERVAL = 7200000; //2 hrs
 
 const PORT = 3000;
 
